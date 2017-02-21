@@ -816,12 +816,12 @@ class Mockery
 
     public static function declareClass($fqn)
     {
-        return static::declareType($fqn, "class");
+        static::declareType($fqn, "class");
     }
 
     public static function declareInterface($fqn)
     {
-        return static::declareType($fqn, "interface");
+        static::declareType($fqn, "interface");
     }
 
     private static function declareType($fqn, $type)

@@ -48,6 +48,9 @@ class NoMatchingExpectationException extends Mockery\Exception
         return $this;
     }
 
+    /**
+     * @return Mockery\MockInterface
+     */
     public function getMock()
     {
         return $this->mockObject;

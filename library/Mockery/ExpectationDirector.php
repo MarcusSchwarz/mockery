@@ -39,7 +39,7 @@ class ExpectationDirector
     /**
      * Stores an array of all expectations for this mock
      *
-     * @var array
+     * @var \Mockery\Expectation[]
      */
     protected $_expectations = array();
 
@@ -53,7 +53,7 @@ class ExpectationDirector
     /**
      * Stores an array of all default expectations for this mock
      *
-     * @var array
+     * @var \Mockery\Expectation[]
      */
     protected $_defaults = array();
 
@@ -129,7 +129,7 @@ class ExpectationDirector
      * Attempt to locate an expectation matching the provided args
      *
      * @param array $args
-     * @return mixed
+     * @return Expectation
      */
     public function findExpectation(array $args)
     {
@@ -168,6 +168,7 @@ class ExpectationDirector
      */
     protected function _findExpectationIn(array $expectations, array $args)
     {
+        /** @var Expectation $exp */
         foreach ($expectations as $exp) {
             if ($exp->isEligible() && $exp->matchArgs($args)) {
                 return $exp;
@@ -183,7 +184,7 @@ class ExpectationDirector
     /**
      * Return all expectations assigned to this director
      *
-     * @return array
+     * @return Expectation[]
      */
     public function getExpectations()
     {

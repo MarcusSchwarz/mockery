@@ -26,7 +26,7 @@ class TestListener extends \PHPUnit_Framework_BaseTestListener
      * endTest is called after each test and checks if \Mockery::close() has
      * been called, and will let the test fail if it hasn't.
      *
-     * @param  PHPUnit_Framework_Test $test
+     * @param  \PHPUnit_Framework_Test $test
      * @param  float                  $time
      */
     public function endTest(\PHPUnit_Framework_Test $test, $time)

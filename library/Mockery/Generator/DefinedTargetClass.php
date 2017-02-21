@@ -49,6 +49,9 @@ class DefinedTargetClass implements TargetClassInterface
         return $this->rfc->isFinal();
     }
 
+    /**
+     * @return Method[]
+     */
     public function getMethods()
     {
         return array_map(function ($method) {

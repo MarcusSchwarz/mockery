@@ -21,6 +21,7 @@
 namespace Mockery;
 
 use Mockery\Generator\Generator;
+use Mockery\Generator\MockConfiguration;
 use Mockery\Generator\MockConfigurationBuilder;
 use Mockery\Loader\Loader as LoaderInterface;
 
@@ -57,7 +58,7 @@ class Container
     protected $_groups = array();
 
     /**
-     * @var Generator\Generator
+     * @var Generator
      */
     protected $_generator;
 
@@ -374,6 +375,7 @@ class Container
      *
      * @param string $method
      * @param int $order
+     * @param \Mockery\MockInterface $mock
      * @throws \Mockery\Exception
      * @return void
      */
@@ -410,7 +412,7 @@ class Container
     /**
      * Store a mock and set its container reference
      *
-     * @param \Mockery\Mock
+     * @param \Mockery\MockInterface $mock
      * @return \Mockery\Mock
      */
     public function rememberMock(\Mockery\MockInterface $mock)
@@ -446,6 +448,7 @@ class Container
      * Return a specific remembered mock according to the array index it
      * was stored to in this container instance
      *
+     * @param string $reference
      * @return \Mockery\Mock
      */
     public function fetchMock($reference)
@@ -480,7 +483,7 @@ class Container
         return $instance;
     }
 
-    protected function checkForNamedMockClashes($config)
+    protected function checkForNamedMockClashes(MockConfiguration $config)
     {
         $name = $config->getName();
 

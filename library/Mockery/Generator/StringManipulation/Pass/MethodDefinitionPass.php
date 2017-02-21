@@ -54,7 +54,7 @@ class MethodDefinitionPass implements Pass
         return $code;
     }
 
-    protected function renderParams(Method $method, $config)
+    protected function renderParams(Method $method, MockConfiguration $config)
     {
         $class = $method->getDeclaringClass();
         if ($class->isInternal()) {
@@ -125,10 +125,10 @@ class MethodDefinitionPass implements Pass
             }
         }
 
-        return $typeHint .= ' ';
+        return $typeHint . ' ';
     }
 
-    private function renderMethodBody($method, $config)
+    private function renderMethodBody(Method $method, MockConfiguration $config)
     {
         $invoke = $method->isStatic() ? 'static::_mockery_handleStaticMethodCall' : '$this->_mockery_handleMethodCall';
         $body = <<<BODY
@@ -159,6 +159,7 @@ BODY;
                 }
             }
         } else {
+            /** @var Parameter[] $params */
             $params = array_values($method->getParameters());
             $paramCount = count($params);
             for ($i = 0; $i < $paramCount; ++$i) {

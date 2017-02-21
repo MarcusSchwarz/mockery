@@ -138,6 +138,8 @@ class MockConfiguration
      * Gets a list of methods from the classes, interfaces and objects and
      * filters them appropriately. Lot's of filtering going on, perhaps we could
      * have filter classes to iterate through
+     *
+     * @return Method[]
      */
     public function getMethodsToMock()
     {
@@ -349,6 +351,9 @@ class MockConfiguration
         return $this->targetTraits;
     }
 
+    /**
+     * @return TargetClassInterface[]
+     */
     public function getTargetInterfaces()
     {
         if (!empty($this->targetInterfaces)) {
@@ -481,6 +486,9 @@ class MockConfiguration
         $this->targetClassName = $targetClassName;
     }
 
+    /**
+     * @return TargetClassInterface[]
+     */
     protected function getAllMethods()
     {
         if ($this->allMethods) {

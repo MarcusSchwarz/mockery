@@ -32,7 +32,7 @@ class CompositeExpectation implements ExpectationInterface
     /**
      * Add an expectation to the composite
      *
-     * @param \Mockery\Expectation|\Mockery\CompositeExpectation $expectation
+     * @param ExpectationInterface $expectation
      * @return void
      */
     public function add($expectation)

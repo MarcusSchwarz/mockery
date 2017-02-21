@@ -158,24 +158,6 @@ final class Instantiator
     }
 
     /**
-     * Verifies whether the given class is to be considered internal
-     *
-     * @param ReflectionClass $reflectionClass
-     *
-     * @return bool
-     */
-    private function hasInternalAncestors(ReflectionClass $reflectionClass)
-    {
-        do {
-            if ($reflectionClass->isInternal()) {
-                return true;
-            }
-        } while ($reflectionClass = $reflectionClass->getParentClass());
-
-        return false;
-    }
-
-    /**
      * Verifies if the given PHP version implements the `Serializable` interface serialization
      * with an incompatible serialization format. If that's the case, use serialization marker
      * "C" instead of "O".

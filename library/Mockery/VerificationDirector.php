@@ -33,7 +33,7 @@ class VerificationDirector
 
     public function verify()
     {
-        return $this->receivedMethodCalls->verify($this->expectation);
+        $this->receivedMethodCalls->verify($this->expectation);
     }
 
     public function with()

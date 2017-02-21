@@ -107,4 +107,30 @@ class Parameter
     {
         return $this->rfp->isVariadic();
     }
+
+    public function isPassedByReference()
+    {
+        return $this->rfp->isPassedByReference();
+    }
+
+    public function isDefaultValueAvailable()
+    {
+        return $this->rfp->isDefaultValueAvailable();
+    }
+
+    public function getDefaultValue()
+    {
+        return $this->rfp->getDefaultValue();
+    }
+
+    public function isOptional()
+    {
+        return $this->rfp->isOptional();
+    }
+
+    public function allowsNull()
+    {
+        return $this->rfp->allowsNull();
+    }
 }
+

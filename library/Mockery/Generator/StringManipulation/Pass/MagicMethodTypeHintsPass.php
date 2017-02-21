@@ -140,7 +140,7 @@ class MagicMethodTypeHintsPass implements Pass
         $parameterMatches = [];
 
         preg_match(
-            $this->getDeclarationRegex($method->getName()),
+            $this->getDeclarationRegex($methodName),
             $code,
             $matches
         );
@@ -204,7 +204,6 @@ class MagicMethodTypeHintsPass implements Pass
      */
     private function getDeclarationRegex($methodName)
     {
-        $method = strtolower($methodName);
         return "/public\s+(?:static\s+)?function\s+$methodName\s*\(.*\)\s*(?=\{)/i";
     }
 }

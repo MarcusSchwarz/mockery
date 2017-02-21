@@ -52,7 +52,7 @@ class Expectation implements ExpectationInterface
     /**
      * Count validator store
      *
-     * @var array
+     * @var \Mockery\CountValidator\Exact[]
      */
     protected $_countValidators = array();
 
@@ -186,6 +186,7 @@ class Expectation implements ExpectationInterface
     /**
      * Throws an exception if the expectation has been configured to do so
      *
+     * @param \Exception|\Throwable $return
      * @throws \Exception|\Throwable
      * @return void
      */
@@ -287,7 +288,7 @@ class Expectation implements ExpectationInterface
     /**
      * Verify this expectation
      *
-     * @return bool
+     * @return void
      */
     public function verify()
     {
@@ -620,7 +621,7 @@ class Expectation implements ExpectationInterface
      * Indicates the number of times this expectation should occur
      *
      * @param int $limit
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @return self
      */
     public function times($limit = null)
@@ -693,6 +694,8 @@ class Expectation implements ExpectationInterface
      *
      * @param int $minimum
      * @param int $maximum
+     *
+     * @return Expectation
      */
     public function between($minimum, $maximum)
     {

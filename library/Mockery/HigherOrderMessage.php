@@ -32,7 +32,7 @@ class HigherOrderMessage
     }
 
     /**
-     * @return Mockery\Expectation
+     * @return Expectation
      */
     public function __call($method, $args)
     {

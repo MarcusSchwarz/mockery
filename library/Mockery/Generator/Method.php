@@ -34,6 +34,9 @@ class Method
         return call_user_func_array(array($this->method, $method), $args);
     }
 
+    /**
+     * @return Parameter[]
+     */
     public function getParameters()
     {
         return array_map(function ($parameter) {
@@ -58,4 +61,45 @@ class Method
         }
         return '';
     }
+
+    public function isPublic()
+    {
+        return $this->method->isPublic();
+    }
+
+    public function isProtected()
+    {
+        return $this->method->isProtected();
+    }
+
+    public function isPrivate()
+    {
+        return $this->method->isPrivate();
+    }
+
+    public function isStatic()
+    {
+        return $this->method->isStatic();
+    }
+
+    public function returnsReference()
+    {
+        return $this->method->returnsReference();
+    }
+
+    public function getName()
+    {
+        return $this->method->getName();
+    }
+
+    public function getDeclaringClass()
+    {
+        return $this->method->getDeclaringClass();
+    }
+
+    public function isFinal()
+    {
+        return $this->method->isFinal();
+    }
+
 }

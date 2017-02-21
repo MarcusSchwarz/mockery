@@ -29,7 +29,7 @@ class Mock implements MockInterface
     /**
      * Stores an array of all expectation directors for this mock
      *
-     * @var array
+     * @var ExpectationDirector[]
      */
     protected $_mockery_expectations = array();
 
@@ -133,7 +133,7 @@ class Mock implements MockInterface
     /**
      * Just a local cache for this mock's target's methods
      *
-     * @var ReflectionMethod[]
+     * @var \ReflectionMethod[]
      */
     protected static $_mockery_methods;
 
@@ -438,6 +438,8 @@ class Mock implements MockInterface
      * Set current ordered number
      *
      * @param int $order
+     *
+     * @return int
      */
     public function mockery_setCurrentOrder($order)
     {
@@ -498,7 +500,7 @@ class Mock implements MockInterface
      * Return the expectations director for the given method
      *
      * @var string $method
-     * @return \Mockery\ExpectationDirector|null
+     * @return void
      */
     public function mockery_setExpectationsFor($method, \Mockery\ExpectationDirector $director)
     {
@@ -516,6 +518,7 @@ class Mock implements MockInterface
         if (isset($this->_mockery_expectations[$method])) {
             return $this->_mockery_expectations[$method];
         }
+        return null;
     }
 
     /**
@@ -814,7 +817,7 @@ class Mock implements MockInterface
      * Uses reflection to get the list of all
      * methods within the current mock object
      *
-     * @return array
+     * @return \ReflectionMethod[]
      */
     protected function mockery_getMethods()
     {
